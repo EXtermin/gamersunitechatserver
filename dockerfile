@@ -3,5 +3,10 @@
 #
 FROM openjdk:latest
 ADD . ./
-RUN npm install -ci
+# Install all the dependencies
+RUN npm install --force
+
+# Generate the build of the application
+RUN npm run build
+
 CMD ["node","app.js"]
